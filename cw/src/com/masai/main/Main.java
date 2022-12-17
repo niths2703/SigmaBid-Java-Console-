@@ -31,7 +31,7 @@ public class Main {
                //Limit Attempts
 				while(!mainresult) {
 					revAdminCount++;
-					System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-countBdoLogin) +" Attempts remaining"+ ConsoleColors.RESET);
+					System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-revAdminCount) +" Attempts remaining"+ ConsoleColors.RESET);
 					mainresult = am.adminLogin();
 					
 					if(revAdminCount ==3 && mainresult ==false) {
@@ -85,36 +85,36 @@ public class Main {
 				
 			}
 			else if(choice.equals("2")) {
-
+				
 				VendorMain vm=new VendorMain();
 				boolean vendorresult=vm.VendorLogin();
-
-
+				
+				
 				int revVendorCount=1;
 				while(!vendorresult) {
 					revVendorCount++;
-
+					
 					System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-revVendorCount) +" Attempts remaining"+ ConsoleColors.RESET);
 					vendorresult = vm.VendorLogin();
-
+					
 					if(revVendorCount ==3 && vendorresult ==false) {
 						System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "Maximum Limit Crossed : Try Again Later"+ ConsoleColors.RESET);
 						break;
-
+						
 					}
 				}
-
-
+				
+				
 				if(vendorresult) {
-
+					
 					while(true) {
-
+						
 						vm.VendorWindow();
-
+						
 						String choiceVendor=sc.nextLine();
-
+						
 						if(choiceVendor.equals("1")) {
-							vm.createBidAgainstTender();
+						vm.createBidAgainstTender();	
 						}
 						else if(choiceVendor.equals("2")) {
 							vm.viewListOfAllTenders();
@@ -132,28 +132,28 @@ public class Main {
 						else {
 							System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 5" + ConsoleColors.RESET);
 						}
-
+						
 					}
-
+					
 					appStart();
 				}
 				else {
 					appStart();
 				}
 			}
-			else if(choice.equals("3")) {
-				System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "APPLICATION CLOSED : EXITED" + ConsoleColors.RESET);
-				System.exit(0);
-
-			}else {
-				System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 3" + ConsoleColors.RESET);
-				appStart();
-
-			}
-
-
-
-
+		else if(choice.equals("3")) {
+			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "APPLICATION CLOSED : EXITED" + ConsoleColors.RESET);
+			System.exit(0);
+			
+		}else {
+			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 3" + ConsoleColors.RESET);
+			appStart();
+			
+		}
+			
+		
+			
+			
 		}
 		catch(InputMismatchException e) {
 			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
@@ -162,7 +162,7 @@ public class Main {
 			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
 		}
 	}
-
+	
 	public static void main(String[] args) {
 		appStart();
 	}

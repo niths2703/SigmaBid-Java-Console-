@@ -1,5 +1,6 @@
 package com.masai.main;
 
+import com.masai.custom.ConsoleColors;
 import com.masai.usecases.CreateBidUseCase;
 import com.masai.usecases.DisplayAllVendorsUseCase2;
 import com.masai.usecases.ShowBidHistoryOfVendorUseCase;
@@ -13,7 +14,7 @@ public class VendorMain {
 		
 		return login.vendorLogin();	
 	}
-
+	
 	public static void  VendorWindow() {
 		System.out.println(ConsoleColors.BROWN_BACKGROUND+ConsoleColors.WHITE_BOLD_BRIGHT+"Welcome to Vendor Home Window : "+ ConsoleColors.RESET);
 		System.out.println("Press 1 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" Create a Bid." + ConsoleColors.RESET);
