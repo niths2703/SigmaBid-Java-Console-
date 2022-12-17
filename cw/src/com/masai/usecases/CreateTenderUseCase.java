@@ -27,9 +27,8 @@ public class CreateTenderUseCase {
 		
 		System.out.println("Enter Tender Price:");
 		int price=sc.nextInt();
+	
 		
-		System.out.println("Enter Tender Description:");
-		String desc=sc.next();
 		
 		System.out.println("Enter Tender Deadline: (YYYY-MM-DD)");
 		
@@ -39,6 +38,11 @@ public class CreateTenderUseCase {
 		System.out.println("Enter Tender Location:");
 		String loc=sc.next();
 		
+		
+		System.out.println("Enter Tender Description:");
+		sc.nextLine();
+		String desc=sc.nextLine();
+		sc.close();
 		Tender t=new Tender();
 		
 		t.setT_name(name);

@@ -25,7 +25,7 @@ public class VendorDaoImpl implements VendorDao {
 		
 		try(Connection conn =DBUtil.provideConnection()){
 			
-			PreparedStatement ps=conn.prepareStatement("select * from vendors");
+			PreparedStatement ps=conn.prepareStatement("select * from vendor");
 			
 			ResultSet rs=ps.executeQuery();
 			
@@ -92,7 +92,7 @@ public class VendorDaoImpl implements VendorDao {
 		
 		try(Connection conn=DBUtil.provideConnection()){
 			
-			PreparedStatement ps=conn.prepareStatement("select * from vendors");
+			PreparedStatement ps=conn.prepareStatement("select * from vendor");
 			
 			ResultSet rs=ps.executeQuery();
 			
