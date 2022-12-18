@@ -42,7 +42,7 @@ public class CreateTenderUseCase {
 		System.out.println("Enter Tender Description:");
 		sc.nextLine();
 		String desc=sc.nextLine();
-		sc.close();
+		
 		Tender t=new Tender();
 		
 		t.setT_name(name);

@@ -24,7 +24,7 @@ public class AdminMain {
 		System.out.println("Press 2 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" View List of all Tenders." + ConsoleColors.RESET);
 		System.out.println("Press 3 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" Register a Vendor " + ConsoleColors.RESET);
 		System.out.println("Press 4 to"+ConsoleColors.PURPLE_BOLD_BRIGHT+" View List of all Vendors " + ConsoleColors.RESET);
-		System.out.println("Press 5 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" Assign any Tender to a Vendor" + ConsoleColors.RESET);
+		System.out.println("Press 5 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" Assign any Tender Bid to a Vendor" + ConsoleColors.RESET);
 		System.out.println("Press 6 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" View List of all Bids of a Tender " + ConsoleColors.RESET);
 		System.out.println("Press 7 to"+ConsoleColors.PURPLE_BOLD_BRIGHT +" LOGOUT AND RETURN TO HOMEPAGE" + ConsoleColors.RESET);	
 	}

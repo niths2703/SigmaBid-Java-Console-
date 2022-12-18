@@ -15,7 +15,7 @@ public class AssignTenderToVendorUseCase {
 		
 		Scanner sc=new Scanner(System.in);
 		
-		System.out.println("Enter tendor id to assign:");
+		System.out.println("Enter tender id to assign:");
 		int t_id=sc.nextInt();
 		
 		System.out.println("Enter vendor id to assign:");
