@@ -2,7 +2,7 @@ package com.masai.main;
 
 import com.masai.custom.ConsoleColors;
 import com.masai.usecases.CreateBidUseCase;
-import com.masai.usecases.DisplayAllVendorsUseCase2;
+import com.masai.usecases.DisplayAllTendersUseCase2;
 import com.masai.usecases.ShowBidHistoryOfVendorUseCase;
 import com.masai.usecases.ShowBidStatusUseCase;
 import com.masai.usecases.VendorLoginUseCase;
@@ -25,7 +25,7 @@ public class VendorMain {
 	}
 	
 	public static void viewListOfAllTenders() {
-		DisplayAllVendorsUseCase2 d= new DisplayAllVendorsUseCase2();
+		DisplayAllTendersUseCase2 d= new DisplayAllTendersUseCase2();
 		
 		d.displayAllVendors();
 	}
