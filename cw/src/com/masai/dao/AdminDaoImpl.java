@@ -90,10 +90,10 @@ public class AdminDaoImpl implements AdminDao {
 				int t_price=rs.getInt("t_price");
 				String t_desc=rs.getString("t_desc");
 				
-				Date d=rs.getDate("t_deadline");
-				LocalDate t_deadline=d.toInstant()
-					      .atZone(ZoneId.systemDefault())
-					      .toLocalDate();
+				java.sql.Date d=rs.getDate("t_deadline");
+				@SuppressWarnings("deprecation")
+				java.util.Date utilDate = new java.util.Date(d.getDate());
+				LocalDate t_deadline=utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 				String t_location=rs.getString("t_location");
 				
 				Tender t=new Tender();
