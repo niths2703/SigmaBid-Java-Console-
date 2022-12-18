@@ -27,7 +27,7 @@ public class VendorMain {
 	public static void viewListOfAllTenders() {
 		DisplayAllTendersUseCase2 d= new DisplayAllTendersUseCase2();
 		
-		d.displayAllVendors();
+		d.displayAllTenders();
 	}
 	
 	public static void createBidAgainstTender() {
