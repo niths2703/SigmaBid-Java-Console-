@@ -228,7 +228,7 @@ public class AdminDaoImpl implements AdminDao {
 					 
 					 
 				 }else {
-					 throw new TenderException("Tender does not exist with tendor id:"+ t_id);
+					 throw new TenderException("Bid does not exist with tendor id:"+ t_id);
 				 }
 				 
 				 

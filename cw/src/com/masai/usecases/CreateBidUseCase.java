@@ -18,8 +18,8 @@ public class CreateBidUseCase {
 		
 		try {
 			
-			System.out.println("Enter Vendor Id : ");
-			int vendor_id=sc.nextInt();
+//			System.out.println("Enter Vendor Id : ");
+//			int vendor_id=sc.nextInt();
 			
 			System.out.println("Enter Tendor Id : ");
 			int tender_id=sc.nextInt();
@@ -33,13 +33,15 @@ public class CreateBidUseCase {
 			
 			Bid b=new Bid();
 			
-			b.setV_id(vendor_id);
+			//b.setV_id(vendor_id);
 			b.setT_id(tender_id);
 			b.setBid_value(bid_value);
 			b.setBid_status(bid_status);
 			
 			
 			VendorDao dao=new VendorDaoImpl();
+			
+			
 			
 			String result;
 			

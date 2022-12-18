@@ -4,13 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.masai.exception.BidException;
 import com.masai.exception.CredentialException;
+import com.masai.exception.TenderException;
 import com.masai.exception.VendorException;
 import com.masai.model.Bid;
+import com.masai.model.Tender;
 import com.masai.model.Vendor;
 import com.masai.utility.DBUtil;
 
@@ -61,7 +66,7 @@ public class VendorDaoImpl implements VendorDao {
 			
 			PreparedStatement ps=conn.prepareStatement("insert into bid(v_id, t_id, bid_value, bid_status) values(?,?,?,?)");
 			
-			ps.setInt(1, b.getV_id());
+			ps.setInt(1, vendor_id);
 			ps.setInt(2, b.getT_id());
 			ps.setDouble(3, b.getBid_value());
 			ps.setBoolean(4,b.isBid_status());
@@ -86,46 +91,56 @@ public class VendorDaoImpl implements VendorDao {
 	}
 
 	@Override
-	public List<Vendor> displayAllVendors() throws VendorException {
+	public List<Tender> displayAllTenders() throws TenderException {
 		
-		List<Vendor> vendors=new ArrayList<>();
+List<Tender> tenders=new ArrayList<>();
 		
 		try(Connection conn=DBUtil.provideConnection()){
 			
-			PreparedStatement ps=conn.prepareStatement("select * from vendor");
+			PreparedStatement ps=conn.prepareStatement("select * from tender");
 			
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
+				int t_id=rs.getInt("t_id");
+				String t_name=rs.getString("t_name");
+				String t_type=rs.getString("t_type");
+				int t_price=rs.getInt("t_price");
+				String t_desc=rs.getString("t_desc");
 				
-				Vendor v=new Vendor();
+				Date d=rs.getDate("t_deadline");
+				LocalDate t_deadline=d.toInstant()
+					      .atZone(ZoneId.systemDefault())
+					      .toLocalDate();
+				String t_location=rs.getString("t_location");
 				
-				v.setV_id(rs.getInt("v_id"));
-				v.setPassword(rs.getString("password"));
-				v.setV_name(rs.getString("v_name"));
-				v.setV_mob(rs.getInt("v_mob"));
-				v.setEmail(rs.getString("v_email"));
-				v.setCompany(rs.getString("company"));
-				v.setAddress(rs.getString("address"));
-				
-				vendors.add(v);
-				
+				Tender t=new Tender();
+				t.setT_id(t_id);
+				t.setT_name(t_name);
+				t.setT_type(t_type);
+				t.setT_price(t_price);
+				t.setT_desc(t_desc);
+				t.setT_deadline(t_deadline);
+				t.setT_location(t_location);
+			
+				tenders.add(t);
 			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new TenderException(e.getMessage());
 		}
 		
-		if(vendors.size()==0) {
-			throw new VendorException("No Vendors Here");
+		if(tenders.size()==0) {
+		    throw new TenderException("No Tenders");
 		}
 		
-		return vendors;
+		return tenders;
 	}
 
 	@Override
-	public boolean showStatusOfBid(int bid_id,int vendor_id) throws BidException {
+	public boolean showStatusOfBid(int bid_id) throws BidException {
 		
 		try(Connection conn=DBUtil.provideConnection()){
 			
@@ -154,7 +169,7 @@ public class VendorDaoImpl implements VendorDao {
 	}
 
 	@Override
-	public List<Bid> showHistoryOfBidsForVendor(int vendor_id) throws VendorException, BidException {
+	public List<Bid> showHistoryOfBidsForVendor() throws VendorException, BidException {
 		
 	List<Bid> bids=new ArrayList<>();
 		

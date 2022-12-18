@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.masai.exception.BidException;
 import com.masai.exception.CredentialException;
+import com.masai.exception.TenderException;
 import com.masai.exception.VendorException;
 import com.masai.model.Bid;
+import com.masai.model.Tender;
 import com.masai.model.Vendor;
 
 public interface VendorDao {
@@ -14,9 +16,9 @@ public interface VendorDao {
 
 	public String createBid(Bid b) throws BidException;
 	
-	public List<Vendor> displayAllVendors() throws VendorException;
+	public List<Tender> displayAllTenders() throws TenderException;
 	
-	public boolean showStatusOfBid(int bid_id,int vendor_id) throws BidException;
+	public boolean showStatusOfBid(int bid_id) throws BidException;
 	
-	public List<Bid> showHistoryOfBidsForVendor(int vendor_id) throws VendorException,BidException;
+	public List<Bid> showHistoryOfBidsForVendor() throws VendorException,BidException;
 }

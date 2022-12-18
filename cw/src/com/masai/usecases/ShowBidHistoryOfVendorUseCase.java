@@ -16,16 +16,16 @@ public class ShowBidHistoryOfVendorUseCase {
 	public static void ShowBidHistory() {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Vendor ID to see list of all bids that vendor : ");
-		int v_id = sc.nextInt();
+		System.out.println("My Bid History Is : ");
+		
 		
 		
 		VendorDao dao=new VendorDaoImpl();
 		
 		try {
-			List<Bid> bids =  dao.showHistoryOfBidsForVendor(v_id);
+			List<Bid> bids =  dao.showHistoryOfBidsForVendor();
 			
-			System.out.println("--" + ConsoleColors.PURPLE_BACKGROUND+ConsoleColors.YELLOW_BOLD_BRIGHT +"Table of all the Bids of Vendor with vendor ID: " +v_id + ConsoleColors.RESET+ "----");
+			System.out.println("--" + ConsoleColors.PURPLE_BACKGROUND+ConsoleColors.YELLOW_BOLD_BRIGHT +"Table of all my Bids  "  + ConsoleColors.RESET+ "----");
 			
 			System.out.println("-------------------------------------------------------------");
 			
@@ -51,7 +51,7 @@ public class ShowBidHistoryOfVendorUseCase {
 			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
 		}
 		
-		sc.close();
+		
 		
 	}
 }

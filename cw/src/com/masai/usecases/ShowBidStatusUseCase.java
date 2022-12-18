@@ -14,8 +14,7 @@ public class ShowBidStatusUseCase {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter Vendor ID");
-		int v_id = sc.nextInt();
+		
 		
 		System.out.println("Enter Bid ID");
 		int b_id = sc.nextInt();
@@ -24,9 +23,10 @@ public class ShowBidStatusUseCase {
 		VendorDao dao = new VendorDaoImpl();
 		
 		try {
-			boolean b =  dao.showStatusOfBid(b_id, v_id);
+			boolean b =  dao.showStatusOfBid(b_id);
 			
-			System.out.println("--" + ConsoleColors.PURPLE_BACKGROUND+ConsoleColors.YELLOW_BOLD_BRIGHT +"Status Of Bid with bid_id " +b_id +" and vendor_id" +v_id+ ConsoleColors.RESET+ "----");
+			System.out.println("--" + ConsoleColors.PURPLE_BACKGROUND+ConsoleColors.YELLOW_BOLD_BRIGHT +"Status Of Bid with bid_id " +b_id +" "+ b+  ConsoleColors.RESET+ "----");
+			
 			
 			
 			
