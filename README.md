@@ -11,7 +11,8 @@ There are 2 users in the system:
 1.Administrator  
 
 2.Vendor  
-
+  
+  
 The Role of Administrator is:  
 
 
@@ -30,7 +31,8 @@ The Role of Administrator is:
 7.Assign tender to a vendor.  
 
 
-
+  
+  
 
 The Role of a Vendor is:
 
@@ -49,7 +51,9 @@ The Role of a Vendor is:
 
 
 
-![Application flow](https://user-images.githubusercontent.com/107460190/208251199-da2ecd2d-f34c-4740-979c-6bf452b41c00.png)
+![Application flow](https://user-images.githubusercontent.com/107460190/208251199-da2ecd2d-f34c-4740-979c-6bf452b41c00.png)  
+ER Diagram  
+
 
 <img width="441" alt="er" src="https://user-images.githubusercontent.com/107460190/208251172-ac2da0f9-a445-41b9-bbc2-95ace69d404d.png">
 
